@@ -1,0 +1,23 @@
+head{
+	background-color: pink;
+}
+
+#createreservation{
+	margin-left: 4%;
+	color: black;
+}
+
+a{
+	margin-left: 70%;
+	color: black;
+}
+h1{
+	text-align: center;
+	color: blue;
+}
+
+.formbox{
+	margin-left: 29%;
+	margin-right: 29%;
+	border-style: solid;
+}
