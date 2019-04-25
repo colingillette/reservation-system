@@ -21,3 +21,18 @@ h1{
 	margin-right: 29%;
 	border-style: solid;
 }
+
+section {
+	width: 80%;
+	margin: auto;
+}
+
+.list-item {
+	margin-left: 5%;
+}
+
+table {
+	width: 90%;
+	margin-left: 10%;
+	text-align: center;
+}

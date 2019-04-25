@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reservation List</title>
+        <link rel="stylesheet" href="index.css">
+        <a href="createReservation.html" id="createreservation">Create Reservation</a>
+        <a href="reservationList.html">Administration</a>
+    </head>
+    <hr>
+    <body>
+        <h1>Current Reservations</h1>
+        <!-- The following will be generated from the database by a set of nested for loops. -->
+        <!-- This is just an example of what it'll look like for two locations. -->
+        <!-- The submit button temporarily links to next page -->
+
+        <p style="text-align:center;">See comments in html for more info. Data will be sorted by city and then starting date.</p>
+        <form name="reservation-list-form" action="#">
+            <section id="location_id1">
+                <h3>Baltimore, MD</h3>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Room Number</th>
+                        <th>Cost per Night</th>
+                        <th>Date Range</th>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
+                        <td>John Doe</td>
+                        <td>Room XXX</td>
+                        <td>$120</td>
+                        <td>01/24/19 - 01/25/19</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
+                        <td>John Doe</td>
+                        <td>Room XXX</td>
+                        <td>$120</td>
+                        <td>01/24/19 - 01/25/19</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
+                        <td>John Doe</td>
+                        <td>Room XXX</td>
+                        <td>$120</td>
+                        <td>01/24/19 - 01/25/19</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
+                        <td>John Doe</td>
+                        <td>Room XXX</td>
+                        <td>$120</td>
+                        <td>01/24/19 - 01/25/19</td>
+                    </tr>
+                </table>
+            </section>
+            <section id="location_id1">
+                <h3>New York City, NY</h3>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Room Number</th>
+                        <th>Cost per Night</th>
+                        <th>Date Range</th>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
+                        <td>John Doe</td>
+                        <td>Room XXX</td>
+                        <td>$120</td>
+                        <td>01/24/19 - 01/25/19</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
+                        <td>John Doe</td>
+                        <td>Room XXX</td>
+                        <td>$120</td>
+                        <td>01/24/19 - 01/25/19</td>
+                    </tr>
+                </table>
+            </section>
+
+            <input type="submit" value="Submit" name="submit" style="font-size: 20px; background-color:darkgrey; margin-left: 47%;">
+            <p><a href="editReservation.html">Temp link to next page.</a></p>
+        </form>
+    </body>
+</html>
