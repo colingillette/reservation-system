@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <head><a href="createReservation.html" id="createreservation">Create Reservation</a></head>
+    <head><a href="reservationList.html">Administration</a></head>
+    <hr>
+<title>Create Reservation</title>
+<body>
+    <h1>Create Reservation</h1>
+
+    <form class="formbox">
+        First Name:
+        <input type="text" name="First Name" style="margin-top:20px"><br>
+        Last Name:
+        <input type="text" name="Last Name" style="margin-top:15px"><br>
+        Number of Adults:
+        <select style="margin-top: 15px">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select><br>
+        Number of children:
+        <select style="margin-top: 15px">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+        Arrival Date:
+        <input type="datetime-local" name="Arrival Date" style="margin-top: 15px"><br>
+        Departure Date:
+        <input type="datetime-local" name="Arrival Date" style="margin-top: 15px"><br>
+        Location:
+        <select style="margin-top:15px">
+            <option value="Springfield">Springfield</option>
+            <option value="Republic">Republic</option>
+            <option value="Marshfield">Marshfield</option>
+            <option value="Nixa">Nixa</option>
+            <option value="Neosho">Neosho</option>
+        </select><br>
+        Card Number:
+        <input type="text" name="Card Number" style="margin-top: 15px"><br>
+    </form>
+    <form style="margin-left:50%; margin-top: 15px">
+        <input type="submit" name="Submit" style="font-size: 20px; background-color:darkgrey" onclick="alert('Clicked')">
+    </form>
+    
+</body>
+</html>
