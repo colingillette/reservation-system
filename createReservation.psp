@@ -28,6 +28,7 @@
         </select><br>
         Number of children:
         <select style="margin-top: 15px">
+            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -35,9 +36,9 @@
             <option value="5">5</option>
         </select><br>
         Arrival Date:
-        <input type="datetime-local" name="Arrival Date" style="margin-top: 15px"><br>
+        <input type="date" name="Arrival Date" style="margin-top: 15px"><br>
         Departure Date:
-        <input type="datetime-local" name="Arrival Date" style="margin-top: 15px"><br>
+        <input type="date" name="Arrival Date" style="margin-top: 15px"><br>
         Location:
         <select style="margin-top:15px">
             <option value="Springfield">Springfield</option>
@@ -48,6 +49,13 @@
         </select><br>
         Card Number:
         <input type="text" name="Card Number" style="margin-top: 15px"><br>
+        Card Company:
+        <select style="margin-top:15px;margin-bottom:15px;">
+            <option value="Visa">Visa</option>
+            <option value="Mastervard">MasterCard</option>
+            <option value="Discover">Discover</option>
+            <option value="American Express">American Express</option>
+        </select>
     </form>
     <form style="margin-left:50%; margin-top: 15px">
         <input type="submit" name="Submit" style="font-size: 20px; background-color:darkgrey" onclick="alert('Clicked')">
