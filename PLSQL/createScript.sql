@@ -38,6 +38,7 @@ CREATE TABLE rooms
 (
     room_id number(11) NOT NULL,
     location_id number(11) NOT NULL,
+    room_no varchar2(10) NOT NULL,
     fits_no_adults number(2),
     fits_no_kids number(2),
     is_smoking char(1),

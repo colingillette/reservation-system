@@ -23,61 +23,8 @@
                         <th>Name</th>
                         <th>Room Number</th>
                         <th>Cost per Night</th>
-                        <th>Date Range</th>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
-                        <td>John Doe</td>
-                        <td>Room XXX</td>
-                        <td>$120</td>
-                        <td>01/24/19 - 01/25/19</td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
-                        <td>John Doe</td>
-                        <td>Room XXX</td>
-                        <td>$120</td>
-                        <td>01/24/19 - 01/25/19</td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
-                        <td>John Doe</td>
-                        <td>Room XXX</td>
-                        <td>$120</td>
-                        <td>01/24/19 - 01/25/19</td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
-                        <td>John Doe</td>
-                        <td>Room XXX</td>
-                        <td>$120</td>
-                        <td>01/24/19 - 01/25/19</td>
-                    </tr>
-                </table>
-            </section>
-            <section id="location_id1">
-                <h3>New York City, NY</h3>
-                <table>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Room Number</th>
-                        <th>Cost per Night</th>
-                        <th>Date Range</th>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
-                        <td>John Doe</td>
-                        <td>Room XXX</td>
-                        <td>$120</td>
-                        <td>01/24/19 - 01/25/19</td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="list-item" name="reservation" value="reservation_id1"></td>
-                        <td>John Doe</td>
-                        <td>Room XXX</td>
-                        <td>$120</td>
-                        <td>01/24/19 - 01/25/19</td>
+                        <th>Arrival Date</th>
+                        <th>Departure Date</th>
                     </tr>
                 </table>
             </section>
