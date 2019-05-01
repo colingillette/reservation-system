@@ -31,7 +31,7 @@ begin
                                 AND depart_date > sysdate
                             order by arrive_date)
         loop
-            
+            dbms_output.put_line(reservation.first || ' ' reservation.last || CHR(9) || reservation.room_no || CHR(9) || reservation.price || CHR(9) || reservation.arrive_date || CHR(9) || reservation.depart_date);
         endloop;
     end loop;
 end;
