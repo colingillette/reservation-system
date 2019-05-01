@@ -32,10 +32,12 @@ CREATE TABLE rooms
     location_id number(11) NOT NULL,
     fits_no_adults number(2),
     fits_no_kids number(2),
-    is_smoking varchar2(1),
+    is_smoking char(1),
     price number(6),
     CONSTRAINT rooms_pk PRIMARY KEY (room_id),
-    CONSTRAINT rooms_locations_fk FOREIGN KEY (location_id) REFERENCES locations(location_id)
+    CONSTRAINT rooms_locations_fk FOREIGN KEY (location_id) REFERENCES locations(location_id),
+    -- Constraint to make sure is_smoking is either 'T' or 'F'
+    CONSTRAINT is_smoking_CK CHECK (is_smoking in ('T', 'F'))
 );
 
 CREATE TABLE reservations
