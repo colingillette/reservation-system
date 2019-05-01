@@ -1,7 +1,15 @@
+-- Drop statements so that the create statements can start fresh
 DROP TABLE reservations;
 DROP TABLE rooms;
 DROP TABLE locations;
 DROP TABLE customers;
+
+DROP SEQUENCE customer_id_seq;
+DROP SEQUENCE location_id_seq;
+DROP SEQUENCE room_id_seq;
+DROP SEQUENCE reservation_id_seq;
+
+-- Begin create statements
 
 CREATE TABLE customers
 (
@@ -51,3 +59,9 @@ CREATE TABLE reservations
     CONSTRAINT reservations_rooms_fk FOREIGN KEY (room_id) REFERENCES rooms(room_id),
     CONSTRAINT reservations_customers_fk FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
+
+-- Sequences for each table's primary key to use
+CREATE SEQUENCE customer_id_seq MINVALUE 1 MAXVALUE 99999999999 START WITH 1 INCREMENT BY 1 CACHE 20;
+CREATE SEQUENCE location_id_seq MINVALUE 1 MAXVALUE 99999999999 START WITH 1 INCREMENT BY 1 CACHE 20;
+CREATE SEQUENCE room_id_seq MINVALUE 1 MAXVALUE 99999999999 START WITH 1 INCREMENT BY 1 CACHE 20;
+CREATE SEQUENCE reservation_id_seq MINVALUE 1 MAXVALUE 99999999999 START WITH 1 INCREMENT BY 1 CACHE 20;
