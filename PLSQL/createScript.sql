@@ -56,6 +56,8 @@ CREATE TABLE reservations
     customer_id number(11) NOT NULL,
     arrive_date date,
     depart_date date,
+    adults number(2),
+    kids number(2)
     CONSTRAINT reservation_id PRIMARY KEY (reservation_id),
     CONSTRAINT reservations_rooms_fk FOREIGN KEY (room_id) REFERENCES rooms(room_id),
     CONSTRAINT reservations_customers_fk FOREIGN KEY (customer_id) REFERENCES customers(customer_id)

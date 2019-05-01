@@ -28,7 +28,8 @@
 
                 <br>
 
-                <label for="location">Location: </label><input type="text" name="location" value="Baltimore, MD"><br>
+                <label for="room_no">room number: </label><input type="text" name="location" value="Baltimore, MD"><br>
+                <label for="location">Location (city, state, country): </label><input type="text" name="location" value="Baltimore, MD"><br>
                 <label for="date-range">Date Range: </label><input type="text" name="location" value="01/23/2020 - 01/27/2020"><br>
 
                 <br>
