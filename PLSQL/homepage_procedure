@@ -8,12 +8,10 @@ create or replace procedure new_reservation
     locations_city_text locations.city%type,
     card_no_text customers.card_no%type,
     card_company customers.card_type%type) IS
-    new_reservation_id_text customers.customer_id%type;
 begin
 insert into customers(first, last, card_no, card_type) values(first_name, last_name,card_no_text, card_company);
 insert into rooms(fits_no_adults, fits_no_kids) values(no_of_adults, no_of_childrens); 
 insert into reservations(arrive_date, depart_date) values(arrive_date_text, depart_date_text);
 insert into locations(city) values(locations_city_text);
 commit;
-select customer_id into new_reservation_id_text from customers;
 end;
