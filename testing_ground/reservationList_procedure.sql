@@ -20,7 +20,3 @@ begin
         end loop;
     end loop;
 end;
-
-begin
-show_current_reservations;
-end;
