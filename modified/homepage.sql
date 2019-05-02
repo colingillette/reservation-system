@@ -59,7 +59,7 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
             <option value="American Express">American Express</option>
         </select>
         <input type="submit" name="submit_button_in" value="Proceed"/>
-    </form>
+     </form>
     
 </body>
 </html>
