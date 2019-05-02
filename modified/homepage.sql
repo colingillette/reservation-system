@@ -1,3 +1,7 @@
+begin
+dbms_epg.create_dad('xepsp','/xepsp/*');
+end;
+
 create or replace procedure Create_New_Reservation as 
 begin 
 htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
