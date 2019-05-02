@@ -27,13 +27,17 @@ begin
                             where customers.customer_id = reservations.customer_id 
                                 AND rooms.room_id = reservations.room_id 
                                 AND locations.location_id = rooms.location_id
-                                AND location_id = location_row.location_id
+                                AND locations.location_id = location_row.location_id
                                 AND depart_date > sysdate
                             order by arrive_date)
         loop
-            dbms_output.put_line(reservation.first || ' ' reservation.last || CHR(9) || reservation.room_no || CHR(9) || reservation.price || CHR(9) || reservation.arrive_date || CHR(9) || reservation.depart_date);
-        endloop;
+            dbms_output.put_line(reservation.first || ' ' ||reservation.last || CHR(9) || reservation.room_no || CHR(9) || reservation.price || CHR(9) || reservation.arrive_date || CHR(9) || reservation.depart_date);
+        end loop;
     end loop;
+end;
+
+begin
+show_current_reservations;
 end;
 
 -- Procedure to show the details of a selected reservation. editReservation.psp
