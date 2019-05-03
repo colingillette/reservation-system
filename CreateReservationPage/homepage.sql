@@ -12,11 +12,11 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
     <head><a href="createReservation.html" id="createreservation">Create Reservation</a></head>
     <head><a href="reservationList.html">Administration</a></head>
     <hr>
-<title>Create Reservation</title>
+<title align = "center">Create Reservation</title>
 <body>
     <h1>Create Reservation</h1>
 
-    <form action="new_reservation" method="post">
+    <form action="new_reservation" method="post" align="center">
         First Name:
         <input type="text" name="first_name_in" style="margin-top:20px"><br>
         Last Name:
