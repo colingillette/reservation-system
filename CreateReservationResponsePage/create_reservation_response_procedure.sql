@@ -1,3 +1,5 @@
+-- At work. Changes currently untested
+
 create or replace procedure new_reservation
     (first_name_in customers.first%type,
     last_name_in customers.last%type,
@@ -14,17 +16,9 @@ create or replace procedure new_reservation
         customer_id_text customers.customer_id%type;
         room_no_text rooms.room_no%type;
 begin
-    select customer_id
-    into customer_id_text
-    from customers
-    where first = first_name_in
-        and last = last_name_in
-        and card_no = card_number_in;
-        
-    select room_no
-    into room_no_text
-    from rooms
-    where room_id = room_id_in;
+    customer_id_text := get_customer_id(first_name_in, last_name_in, card_number_in, card_company_name_in);
+
+    room_no_text := get_room_number(room_id_in);
     
     insert into reservations (reservation_id, room_id, customer_id, arrive_date, depart_date, adults, kids)
         values (reservation_id_seq.nextval, room_id_in, customer_id_text, arrival_in, depart_in, adults_in, children_in);
