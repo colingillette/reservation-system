@@ -16,7 +16,7 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
 <body>
     <h1>Create Reservation</h1>
 
-    <form action="new_reservation" method="post" align="center">
+    <form action="room_picker" method="post" align="center">
         First Name:
         <input type="text" name="first_name_in" style="margin-top:20px"><br>
         Last Name:
