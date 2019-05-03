@@ -2,12 +2,12 @@
 
 create or replace procedure create_reservation is
     cursor location_cursor is 
-        select location_id, city
+        select city
         from locations;
     location_row location_cursor%rowtype;
 begin
     for location_row in location_cursor
     loop
-        dbms_output.put_line('Location Info: ' || location_row.location_id || ' ' || location_row.city);
+        dbms_output.put_line('Location Info: ' || location_row.city);
     end loop;
 end;
