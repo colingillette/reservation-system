@@ -6,9 +6,9 @@ This project starts with a home page. This page will have some generic info abou
 
 ## Reservation Creation Track
 
-This track will allow the user to create a new reservation.
+This track will allow the user to create a new reservation. The procedure or procedures involved in each step will be listed in parentheses to the right of the item.
 
-### Create a Reservation
+### Create a Reservation (create_reservation)
 
 The user will get to a **Create Reservation** page, where they can first input the following information:
 * First Name
@@ -24,7 +24,7 @@ The user will get to a **Create Reservation** page, where they can first input t
 
 If the customer first name, last name, card number, and card type does not already exist as a customer entry, we will create a new customer entry. Otherwise we will use the customer_id that already exists in future pages.
 
-### Room Picker
+### Room Picker (room_picker and create_customer)
 
 This page will either display a generated list of rooms that are available considering the previously input specifications, or it will tell the user that nothing is available given the current parameters. It would then tell the user to go back to the previous page, and give them a link to do so.
 
@@ -35,7 +35,7 @@ If there is at least one room available for these specifications, we will displa
 
 The page will also store all variables from the previous page as input fields with the *hidden* attribute.
 
-### Reservation Response
+### Reservation Response (new_reservation)
 
 This page will show confirmation of the reservation that has been created to the user. This page will also contain the SQL that inserts the reservation row into the database.
 
@@ -43,7 +43,7 @@ This page will show confirmation of the reservation that has been created to the
 
 This track will allow the user to edit a current reservation
 
-### List Current Reservations
+### List Current Reservations (show_current_reservation)
 
 This page will list all current reservations organized by location, and sorted by arrival date. A reservation is considered current if the depart date is later than the **sysdate**. Each reservation will list the following information:
 * Customer name
@@ -53,7 +53,7 @@ This page will list all current reservations organized by location, and sorted b
 * The arrival date
 * The departure date
 
-### Edit Reservation
+### Edit Reservation (edit_reservation)
 
 This page will show all of the available information for the reservation, along with a button to submit edits and a button to delete the resrvation. The following fields will be editable (**Note:** changes will be rejected if they violate the logic of the DB):
 * Customer name
@@ -70,7 +70,7 @@ The page will show these fields that will not be editable, locked by a *readonly
 * Reservation number
 * Price per night
 
-### Edit Reservation Response
+### Edit Reservation Response (edit_reservation_response and create_customer)
 
 If everything is valid in these changes, they will be made. Otherwise this screen will show a message saying as such. If the changes are valid, the **UPDATE** statement will happen here.
 
