@@ -29,7 +29,7 @@ begin
         end if;
         
         if room_good = true then
-            dbms_output.put_line(room_row.room_no || ' ' || room_row.is_smoking || ' ' || room_row.price);
+            dbms_output.put_line(room_id || ' ' || room_row.room_no || ' ' || room_row.is_smoking || ' ' || room_row.price);
         end if;
     end loop;
 end;
