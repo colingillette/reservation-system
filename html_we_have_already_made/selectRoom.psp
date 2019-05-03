@@ -6,8 +6,10 @@
     <head><a href="createReservation.html" id="createreservation">Create Reservation</a></head>
     <head><a href="reservationList.html">Administration</a></head>
     <hr>
-<title>Create Reservation</title>
+<title>Select Rooms</title>
 <body>
-    <h1>Create Reservation</h1>
+    <h1 align="center">Select Rooms</h1>
+    <hr>
+
 </body>
 </html>
