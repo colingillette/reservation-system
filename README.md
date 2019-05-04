@@ -86,4 +86,8 @@ If everything is valid in these changes, they will be made. Otherwise this scree
 
 2. Run the create procedure statement if not done already.
 
-3. In browser, navigate to **127.0.0.1:8080/xepsp/*username*.*procedure_name***
+3. In browser, navigate to **127.0.0.1:8080/xepsp/*procedure_name***
+
+### Thought for trigger
+
+Add a discount column and apply a discount if more than three nights?
