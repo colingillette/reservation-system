@@ -1,6 +1,7 @@
 create or replace procedure edit_reservation
     (reservation_id_in number,
     submit varchar2) is
+    customer_id_text customers.customer_id%type;
     first_text customers.first%type;
     last_text customers.last%type;
     card_no_text customers.card_no%type;
@@ -18,8 +19,8 @@ create or replace procedure edit_reservation
     counter1 number(2);
     counter2 number(2);
 begin
-    select c.first, c.last, c.card_no, c.card_type, re.arrive_date, re.depart_date, re.adults, re.kids, l.city, ro.room_id, ro.room_no, to_char(ro.price, '$999.99')
-    into first_text, last_text, card_no_text, card_type_text, arrive_date_text, depart_date_text, adults_text, kids_text, city_text, room_id_text, room_no_text, price_text
+    select c.customer_id, c.first, c.last, c.card_no, c.card_type, re.arrive_date, re.depart_date, re.adults, re.kids, l.city, ro.room_id, ro.room_no, to_char(ro.price, '$999.99')
+    into customer_id_text, first_text, last_text, card_no_text, card_type_text, arrive_date_text, depart_date_text, adults_text, kids_text, city_text, room_id_text, room_no_text, price_text
     from customers c, locations l, rooms ro, reservations re
     where c.customer_id = re.customer_id
         and ro.room_id = re.room_id
@@ -97,6 +98,8 @@ begin
                             end if;
                         end loop;
                     htp.print('</select><br><br>
+                    <input type="hidden" name="reservation_id_in" value="'||reservation_id_in||'">
+                    <input type="hidden" name="customer_id_text" value="'||customer_id_text||'">
                     <input type="submit" name="submit" value="Submit">
                 </form');
             htp.print('</section></section>
