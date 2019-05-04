@@ -20,7 +20,7 @@ create or replace procedure room_picker
     arrival_in_date reservations.arrive_date%type;
     depart_in_date reservations.depart_date%type;
 begin
-    if check_for_customer(first_name_in, last_name_in, card_number_in, card_company_name_in) then
+    if check_for_customer(first_name_in, last_name_in, card_number_in, card_company_name_in) = false then
         create_customer(first_name_in, last_name_in, card_number_in, card_company_name_in);
     end if;
     
