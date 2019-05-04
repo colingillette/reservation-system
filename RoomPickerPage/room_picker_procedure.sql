@@ -1,5 +1,3 @@
--- At work. Changes currently untested
-
 create or replace procedure room_picker
     (first_name_in customers.first%type,
     last_name_in customers.last%type,
@@ -36,7 +34,7 @@ begin
         end if;
         
         if room_good = true then
-            dbms_output.put_line(room_id || ' ' || room_row.room_no || ' ' || room_row.is_smoking || ' ' || room_row.price);
+            dbms_output.put_line(room_row.room_id || ' ' || room_row.room_no || ' ' || room_row.is_smoking || ' ' || room_row.price);
         end if;
     end loop;
 end;

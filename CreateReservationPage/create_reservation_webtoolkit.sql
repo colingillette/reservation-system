@@ -1,9 +1,5 @@
 -- At work. Changes are untested.
 
-begin
-dbms_epg.create_dad('xepsp','/xepsp/*');
-end;
-
 create or replace procedure Create_New_Reservation as 
     cursor location_cursor is 
         select city
@@ -52,21 +48,21 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
         Departure Date:
         <input type="date" name="depart_in" style="margin-top: 15px"><br>
         Location:
-        <select style="margin-top:15px" name="city_in"> ')
+        <select style="margin-top:15px" name="city_in"> ');
             for location_row in location_cursor
             loop
-                htp.prn('<option value="'||city||'">'||city||'</option>');
+                htp.prn('<option value="'||location_row.city||'">'||location_row.city||'</option>');
             end loop;
         htp.print('</select><br>
         Card Number:
-        <input type="text" name="card_number_in" style="margin-top: 15px"><br>
+        <input type="text" name="card_number_in" style="margin-top: 15px" placeholder="1234 5678 9101 2345"><br>
         Card Company:
         <select style="margin-top:15px;margin-bottom:15px;" name="card_company_name_in">
             <option value="Visa">Visa</option>
             <option value="Mastercard">MasterCard</option>
             <option value="Discover">Discover</option>
             <option value="American Express">American Express</option>
-        </select>
+        </select><br>
         <input type="submit" name="submit_button_in" value="Proceed"/>
      </form>
     

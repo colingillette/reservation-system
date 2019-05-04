@@ -1,5 +1,3 @@
--- At work. Currently untested
-
 create or replace procedure create_customer
     (first_in customers.first%type,
     last_in customers.last%type,
