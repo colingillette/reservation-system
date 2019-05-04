@@ -21,26 +21,24 @@ begin
                     
                     htp.print('<section>
                         <h3>'||location_row.city||'</h3>
-                        <table>
-                            <tr>');
-                                for reservation in (select reservation_id, first, last, room_no, price, arrive_date, depart_date
-                                                    from customers, rooms, reservations, locations
-                                                    where customers.customer_id = reservations.customer_id 
-                                                        AND rooms.room_id = reservations.room_id 
-                                                        AND locations.location_id = rooms.location_id
-                                                        AND locations.location_id = location_row.location_id
-                                                        AND depart_date > sysdate
-                                                    order by arrive_date)
-                                loop
-                                    htp.prn('<td><input type="radio" name="reservation_id_in" value="'||reservation.reservation_id||'"></td>');
-                                    htp.prn('<td>'||reservation.first||' '||reservation.last||'</td>');
-                                    htp.prn('<td>'||reservation.room_no||'</td>');
-                                    htp.prn('<td>'||reservation.price||'</td>');
-                                    htp.prn('<td>'||reservation.arrive_date||'</td>');
-                                    htp.prn('<td>'||reservation.depart_date||'</td>');
-                                end loop;
-                            htp.print('</tr>
-                        </table>
+                        <table>');
+                            for reservation in (select reservation_id, first, last, room_no, price, arrive_date, depart_date
+                                                from customers, rooms, reservations, locations
+                                                where customers.customer_id = reservations.customer_id 
+                                                    AND rooms.room_id = reservations.room_id 
+                                                    AND locations.location_id = rooms.location_id
+                                                    AND locations.location_id = location_row.location_id
+                                                    AND depart_date > sysdate
+                                                order by arrive_date)
+                            loop
+                                htp.prn('<tr><td><input type="radio" name="reservation_id_in" value="'||reservation.reservation_id||'"></td>');
+                                htp.prn('<td>'||reservation.first||' '||reservation.last||'</td>');
+                                htp.prn('<td>'||reservation.room_no||'</td>');
+                                htp.prn('<td>'||reservation.price||'</td>');
+                                htp.prn('<td>'||reservation.arrive_date||'</td>');
+                                htp.prn('<td>'||reservation.depart_date||'</td></tr>');
+                            end loop;
+                        htp.print('</table>
                     </section>');
 
                 end loop;
