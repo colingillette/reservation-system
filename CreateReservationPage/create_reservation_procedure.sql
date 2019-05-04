@@ -1,5 +1,3 @@
--- At work, currently untested
-
 create or replace procedure create_reservation is
     cursor location_cursor is 
         select city

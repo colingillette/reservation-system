@@ -62,4 +62,7 @@ begin
     </body>
     </html>
     ');
+    exception
+    when others then
+    htp.prn(sqlerrm);
 end;

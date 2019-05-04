@@ -1,5 +1,3 @@
--- At work. Changes are untested.
-
 create or replace procedure Create_New_Reservation as 
     cursor location_cursor is 
         select city
@@ -69,4 +67,7 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
 </body>
 </html>
 ');
+exception
+when others then
+htp.prn(sqlerrm);
 end;
