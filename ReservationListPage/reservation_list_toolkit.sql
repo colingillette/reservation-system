@@ -15,7 +15,7 @@ begin
         <body>
             <h1>Current Reservations</h1>
 
-            <form name="reservation-list-form" action="edit_reservation">');
+            <form action="edit_reservation" method="post">');
                 for location_row in location_cursor
                 loop
                     
@@ -44,7 +44,6 @@ begin
                 end loop;
                 
                 htp.print('<input type="submit" value="Submit" name="submit" style="font-size: 20px; background-color:darkgrey; margin-left: 47%;">
-                <p><a href="editReservation.html">Temp link to next page.</a></p>
             </form>
         </body>
     </html>');
