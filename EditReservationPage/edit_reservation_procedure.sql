@@ -1,5 +1,3 @@
--- At work. Changes are untested
-
 create or replace procedure edit_reservation
     (reservation_id_in reservations.reservation_id%type,
     submit varchar2) is
