@@ -1,13 +1,13 @@
 create or replace procedure room_picker
-    (first_name_in customers.first%type,
-    last_name_in customers.last%type,
-    adults_in rooms.fits_no_adults%type,
-    children_in rooms.fits_no_kids%type,
-    arrival_in reservations.arrive_date%type,
-    depart_in reservations.depart_date%type,
-    city_in locations.city%type,
-    card_number_in customers.card_no%type,
-    card_company_name_in customers.card_type%type,
+    (first_name_in varchar2,
+    last_name_in varchar2,
+    adults_in number,
+    children_in number,
+    arrival_in varchar2,
+    depart_in varchar2,
+    city_in varchar2,
+    card_number_in varchar2,
+    card_company_name_in varchar2,
     submit_button_in varchar2) IS
     room_no_text rooms.room_no%type;
     cursor room_cursor is
@@ -17,11 +17,16 @@ create or replace procedure room_picker
             and l.city = city_in;
     room_row room_cursor%rowtype;
     room_good boolean;
+    arrival_in_date reservations.arrive_date%type;
+    depart_in_date reservations.depart_date%type;
 begin
     if check_for_customer(first_name_in, last_name_in, card_number_in, card_company_name_in) then
         create_customer(first_name_in, last_name_in, card_number_in, card_company_name_in);
     end if;
     
+    arrival_in_date := to_date(arrival_in, 'yyyy/mm/dd');
+    depart_in_date := to_date(depart_in, 'yyyy/mm/dd');
+
     htp.prn('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
     <html>
     <head>
@@ -40,7 +45,7 @@ begin
              loop
                 room_good := true;
         
-                room_good := get_date_conflicts(room_row.room_id, arrival_in, depart_in);
+                room_good := get_date_conflicts(room_row.room_id, depart_date_in, depart_date_in);
                 
                 if room_row.fits_no_adults < adults_in or room_row.fits_no_kids < children_in then
                     room_good := false;

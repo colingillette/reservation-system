@@ -1,5 +1,3 @@
--- At work. Currently untested
-
 create or replace procedure show_current_reservations as
     cursor location_cursor is
     select location_id, city, state_province, country from locations;
@@ -47,7 +45,7 @@ begin
 
                 end loop;
                 
-                <input type="submit" value="Submit" name="submit" style="font-size: 20px; background-color:darkgrey; margin-left: 47%;">
+                htp.print('<input type="submit" value="Submit" name="submit" style="font-size: 20px; background-color:darkgrey; margin-left: 47%;">
                 <p><a href="editReservation.html">Temp link to next page.</a></p>
             </form>
         </body>
