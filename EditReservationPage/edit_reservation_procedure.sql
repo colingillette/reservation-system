@@ -27,10 +27,13 @@ begin
     max_adults := max_people('adults', room_id_text);
     max_kids := max_people('kids', room_id_text);
 
-    dbms_output.put_line(first_text || ' ' || last_text ||': Reservation Number ' || reservation_id_in);
-    dbms_output.put_line(city_text || ' location, Room: ' || room_no_text || ' - ' || price_text || ' per night.');
-    dbms_output.put_line('Credit Card: ' || card_type_text || ' ' || card_no_text);
-    dbms_output.put_line('Dates of Stay: ' || arrive_date_text || ' - ' || depart_date_text);
-    dbms_output.put_line('Adults: ' || adults_text || ' of ' || max_adults || ' maximum.');
-    dbms_output.put_line('Kids: ' || kids_text || ' of ' || max_kids || ' maximum.');
+    for i in 1..max_adults
+    loop
+        dbms_output.put_line(i);
+    end loop;
+
+    for j in 0..max_kids
+    loop
+        dbms_output.put_line(j);
+    end loop;
 end;
