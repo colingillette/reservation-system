@@ -1,5 +1,3 @@
--- At work. Currently not tested
-
 create or replace function check_for_customer
     (first_name_in IN customers.first%type,
     last_name_in IN customers.last%type,
@@ -13,7 +11,7 @@ create or replace function check_for_customer
 begin
     for customer_row in customer_cursor
     loop
-        if customer_row.first = first_name_in and customer_row.last = last_name_in and customer.card_no = card_no_in and customer_row.card_type = card_type_in then
+        if customer_row.first = first_name_in and customer_row.last = last_name_in and customer_row.card_no = card_no_in and customer_row.card_type = card_type_in then
             return true;
         end if;
     end loop;

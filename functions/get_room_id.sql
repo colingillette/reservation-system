@@ -1,7 +1,5 @@
--- At work. changes untested
-
 create or replace function get_room_number
-    (room_id_in)
+    (room_id_in rooms.room_id%type)
     return rooms.room_no%type is
     room_no_text rooms.room_no%type;
 begin

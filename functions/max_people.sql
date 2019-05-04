@@ -1,8 +1,8 @@
 create or replace function max_people
-    (person_type varchar2(8),
+    (person_type varchar2,
     room_id_in rooms.room_id%type)
-    num number(2)
-    return number(2) is
+    return number is
+    num number(2);
 begin
     if person_type = 'adults' then
         select fits_no_adults
