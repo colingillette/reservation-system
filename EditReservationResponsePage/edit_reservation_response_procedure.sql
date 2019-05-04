@@ -1,7 +1,5 @@
 create or replace procedure edit_reservation_response
-    (customer_id_in number,
-    room_id_in number,
-    first_name_in varchar2,
+    (first_name_in varchar2,
     last_name_in varchar2,
     card_number_in varchar2,
     card_type_in varchar2,
@@ -10,6 +8,8 @@ create or replace procedure edit_reservation_response
     adults_in number,
     children_in number,
     reservation_id_in number,
+    customer_id_in number,
+    room_id_in number,
     submit varchar2) is
         arrival_text reservations.arrive_date%type;
         depart_text reservations.depart_date%type;
