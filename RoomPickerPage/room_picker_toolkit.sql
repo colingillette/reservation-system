@@ -45,7 +45,7 @@ begin
              loop
                 room_good := true;
         
-                room_good := get_date_conflicts(room_row.room_id, depart_date_in, depart_date_in);
+                room_good := get_date_conflicts(room_row.room_id, depart_in_date, depart_in_date);
                 
                 if room_row.fits_no_adults < adults_in or room_row.fits_no_kids < children_in then
                     room_good := false;
@@ -59,6 +59,16 @@ begin
                     <br>');
                 end if;
              end loop;
+             
+             htp.prn('<input type="hidden" name="first_name_in" value="first_name_in">
+                <input type="hidden" name="last_name_in" value="last_name_in">
+                <input type="hidden" name="adults_in" value="adults_in">
+                <input type="hidden" name="children_in" value="children_in">
+                <input type="hidden" name="arrival_in" value="arrival_in">
+                <input type="hidden" name="depart_in" value="depart_in">
+                <input type="hidden" name="city_in" value="city_in">
+                <input type="hidden" name="card_number_in" value="card_number_in">
+                <input type="hidden" name="card_company_name_in" value="card_company_name_in">');
             
             htp.prn('<br /><br />
             <input type="submit" name="Submit" value="Select Rooms"/>
