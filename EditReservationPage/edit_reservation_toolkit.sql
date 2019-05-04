@@ -1,5 +1,5 @@
 create or replace procedure edit_reservation
-    (reservation_id_in reservations.reservation_id%type,
+    (reservation_id_in number,
     submit varchar2) is
     first_text customers.first%type;
     last_text customers.last%type;
@@ -12,9 +12,11 @@ create or replace procedure edit_reservation
     city_text locations.city%type;
     room_id_text rooms.room_id%type;
     room_no_text rooms.room_no%type;
-    price_text rooms.price%type;
+    price_text varchar2(10);
     max_adults rooms.fits_no_adults%type;
     max_kids rooms.fits_no_kids%type;
+    counter1 number(2);
+    counter2 number(2);
 begin
     select c.first, c.last, c.card_no, c.card_type, re.arrive_date, re.depart_date, re.adults, re.kids, l.city, ro.room_id, ro.room_no, to_char(ro.price, '$999.99')
     into first_text, last_text, card_no_text, card_type_text, arrive_date_text, depart_date_text, adults_text, kids_text, city_text, room_id_text, room_no_text, price_text
@@ -26,6 +28,9 @@ begin
 
     max_adults := max_people('adults', room_id_text);
     max_kids := max_people('kids', room_id_text);
+    
+    counter1 := 1;
+    counter2 := 0;
     
     htp.print('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
     <html>
@@ -44,30 +49,30 @@ begin
             
             <section><section>');
                 htp.prn('<p style="text-align: center;">Reservation number: <b>'||reservation_id_in||'</b></p>');
-                htp.prn('<p>'||city_text||': Room '||room_no_text||' priced at '||price_text||' per night.</p>');
+                htp.prn('<p><b>'||city_text||'</b>: Room '||room_no_text||' priced at '||price_text||' per night.</p>');
                 htp.print('<form action="edit_reservation_response" method="post">
                     First Name: <input type="text" name="first_name_in" value="'||first_text||'"><br>
                     Last Name: <input type="text" name="last_name_in" value="'||last_text||'"><br><br>
-                    Card Information: <input type="text" name="card_number_in" value="'||card_no_text||'> <select>');
+                    Card Information: <input type="text" name="card_number_in" value="'||card_no_text||'"> <select>');
                         if card_type_text = 'Visa' then
-                            htp.prn('<option name="card_type_in" value="Visa" selected="selected">'); 
+                            htp.prn('<option name="card_type_in" value="Visa" selected="selected">Visa</option>'); 
                         else 
-                            htp.prn('<option name="card_type_in" value="Visa">');
+                            htp.prn('<option name="card_type_in" value="Visa">Visa</option>');
                         end if;
                         if card_type_text = 'MasterCard' then
-                            htp.prn('<option name="card_type_in" value="MasterCard" selected="selected">'); 
+                            htp.prn('<option name="card_type_in" value="MasterCard" selected="selected">MasterCard</option>'); 
                         else 
-                            htp.prn('<option name="card_type_in" value="MasterCard">');
+                            htp.prn('<option name="card_type_in" value="MasterCard">MasterCard</option>');
                         end if;
                         if card_type_text = 'Discover' then
-                            htp.prn('<option name="card_type_in" value="Discover" selected="selected">'); 
+                            htp.prn('<option name="card_type_in" value="Discover" selected="selected">Discover</option>'); 
                         else 
-                            htp.prn('<option name="card_type_in" value="Discover">');
+                            htp.prn('<option name="card_type_in" value="Discover">Discover</option>');
                         end if;
                         if card_type_text = 'American Express' then
-                            htp.prn('<option name="card_type_in" value="American Express" selected="selected">'); 
+                            htp.prn('<option name="card_type_in" value="American Express" selected="selected">American Express</option>'); 
                         else 
-                            htp.prn('<option name="card_type_in" value="American Express">');
+                            htp.prn('<option name="card_type_in" value="American Express">American Express</option>');
                         end if;
                     htp.print('</select><br><br>
                     Arrival Date: <input type="text" name="arrival_date_in" value='||arrive_date_text||'><br>
@@ -75,16 +80,24 @@ begin
                     Adults: <select>');
                         for counter1 in 1..max_adults
                         loop
-                            htp.prn('<option name="adults_in" value='||counter1||'>');
+                            if counter1 = adults_text then
+                                htp.prn('<option name="adults_in" value='||counter1||' selected="selected">'||counter1||'</option>');
+                            else
+                                htp.prn('<option name="adults_in" value='||counter1||'>'||counter1||'</option>');
+                            end if;
                         end loop;
                     htp.print('</select><br>
-                    <select>');
-                        for counter1 in 0..max_kids
+                    Children: <select>');
+                        for counter2 in 0..max_kids
                         loop
-                            htp.prn('<option name="children_in" value='||counter1||'>');
+                            if counter2 = kids_text then
+                                htp.prn('<option name="children_in" value='||counter2||' selected="selected">'||counter2||'</option>');
+                            else
+                                htp.prn('<option name="children_in" value='||counter2||'>'||counter2||'</option>');
+                            end if;
                         end loop;
-                    htp.print('</select><br>
-                    <input type="submit" name="submit" value="submit">
+                    htp.print('</select><br><br>
+                    <input type="submit" name="submit" value="Submit">
                 </form');
             htp.print('</section></section>
         </div>
