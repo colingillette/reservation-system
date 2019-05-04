@@ -71,7 +71,7 @@ begin
                 <input type="hidden" name="card_company_name_in" value="'||card_company_name_in||'">');
             
             htp.prn('<br /><br />
-            <input type="submit" name="Submit" value="Select Rooms"/>
+            <input type="submit" name="submit_button_in" value="Select Rooms"/>
         </form>
     <!-- End Page Content -->
     </body>
