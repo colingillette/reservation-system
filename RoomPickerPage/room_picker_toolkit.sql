@@ -64,8 +64,8 @@ begin
                 <input type="hidden" name="last_name_in" value="'||last_name_in||'">
                 <input type="hidden" name="adults_in" value="'||adults_in||'">
                 <input type="hidden" name="children_in" value="'||children_in||'">
-                <input type="hidden" name="arrival_in" value="'||arrival_in||'">
-                <input type="hidden" name="depart_in" value="'||depart_in||'">
+                <input type="hidden" name="arrival_in" value="'||arrival_in_date||'">
+                <input type="hidden" name="depart_in" value="'||depart_in_date||'">
                 <input type="hidden" name="city_in" value="'||city_in||'">
                 <input type="hidden" name="card_number_in" value="'||card_number_in||'">
                 <input type="hidden" name="card_company_name_in" value="'||card_company_name_in||'">');
