@@ -1,5 +1,3 @@
--- At work. Changes currently untested
-
 create or replace procedure new_reservation
     (first_name_in customers.first%type,
     last_name_in customers.last%type,
