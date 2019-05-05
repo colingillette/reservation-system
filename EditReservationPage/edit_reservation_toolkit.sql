@@ -54,48 +54,48 @@ begin
                 htp.print('<form action="edit_reservation_response" method="post">
                     First Name: <input type="text" name="first_name_in" value="'||first_text||'"><br>
                     Last Name: <input type="text" name="last_name_in" value="'||last_text||'"><br><br>
-                    Card Information: <input type="text" name="card_number_in" value="'||card_no_text||'"> <select>');
+                    Card Information: <input type="text" name="card_number_in" value="'||card_no_text||'"> <select name="card_type_in">');
                         if card_type_text = 'Visa' then
-                            htp.prn('<option name="card_type_in" value="Visa" selected="selected">Visa</option>'); 
+                            htp.prn('<option value="Visa" selected="selected">Visa</option>'); 
                         else 
-                            htp.prn('<option name="card_type_in" value="Visa">Visa</option>');
+                            htp.prn('<option value="Visa">Visa</option>');
                         end if;
                         if card_type_text = 'MasterCard' then
-                            htp.prn('<option name="card_type_in" value="MasterCard" selected="selected">MasterCard</option>'); 
+                            htp.prn('<option value="MasterCard" selected="selected">MasterCard</option>'); 
                         else 
-                            htp.prn('<option name="card_type_in" value="MasterCard">MasterCard</option>');
+                            htp.prn('<option value="MasterCard">MasterCard</option>');
                         end if;
                         if card_type_text = 'Discover' then
-                            htp.prn('<option name="card_type_in" value="Discover" selected="selected">Discover</option>'); 
+                            htp.prn('<option value="Discover" selected="selected">Discover</option>'); 
                         else 
-                            htp.prn('<option name="card_type_in" value="Discover">Discover</option>');
+                            htp.prn('<option value="Discover">Discover</option>');
                         end if;
                         if card_type_text = 'American Express' then
-                            htp.prn('<option name="card_type_in" value="American Express" selected="selected">American Express</option>'); 
+                            htp.prn('<option value="American Express" selected="selected">American Express</option>'); 
                         else 
-                            htp.prn('<option name="card_type_in" value="American Express">American Express</option>');
+                            htp.prn('<option value="American Express">American Express</option>');
                         end if;
                     htp.print('</select><br><br>
                     <p>Current Dates of Stay: '||arrive_date_text||' - '||depart_date_text||'</p>
                     Arrival Date: <input type="date" name="arrival_date_in"><br>
                     Depart Date: <input type="date" name="depart_date_in"><br><br>
-                    Adults: <select>');
+                    Adults: <select name="adults_in">');
                         for counter1 in 1..max_adults
                         loop
                             if counter1 = adults_text then
-                                htp.prn('<option name="adults_in" value="'||counter1||'" selected="selected">'||counter1||'</option>');
+                                htp.prn('<option value="'||counter1||'" selected="selected">'||counter1||'</option>');
                             else
-                                htp.prn('<option name="adults_in" value="'||counter1||'">'||counter1||'</option>');
+                                htp.prn('<option value="'||counter1||'">'||counter1||'</option>');
                             end if;
                         end loop;
                     htp.print('</select><br>
-                    Children: <select>');
+                    Children: <select name="children_in">');
                         for counter2 in 0..max_kids
                         loop
                             if counter2 = kids_text then
-                                htp.prn('<option name="children_in" value="'||counter2||'" selected="selected">'||counter2||'</option>');
+                                htp.prn('<option value="'||counter2||'" selected="selected">'||counter2||'</option>');
                             else
-                                htp.prn('<option name="children_in" value="'||counter2||'">'||counter2||'</option>');
+                                htp.prn('<option value="'||counter2||'">'||counter2||'</option>');
                             end if;
                         end loop;
                     htp.print('</select><br><br>
