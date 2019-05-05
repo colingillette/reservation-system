@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
-        <link rel="stylesheet" href="index.css">
+        <title>Hotel Reservation System</title>
     </head>
-    <head><a href="createReservation.html" id="createreservation">Create Reservation</a></head>
-    <head><a href="reservationList.html">Administration</a></head>
-    <hr>
+    <div style="align: center">
+        <head><a href="createReservation.html" id="createreservation">Create Reservation</a></head>
+        <head><a href="reservationList.html">Administration</a></head>
+    <hr></div>
 <title>Example Hotel Company</title>
 <body>
-    <h1>Example Hotel Company</h1>
-    <p><h2>This will contain detail about the company.</h2>
-    </p>
+    <div style="align: center;">
+        <h1>Example Hotel Company</h1>
+        <p><h2>This will contain detail about the company.</h2>
+        </p>
+    </div>
 </body>
 </html>

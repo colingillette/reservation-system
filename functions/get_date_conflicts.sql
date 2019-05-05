@@ -1,3 +1,5 @@
+-- Out of some stroke of genius I apparently had, this returns true if the dates do not conlfict.
+
 create or replace function get_date_conflicts
     (room_id_in IN rooms.room_id%type,
     arrival_in IN reservations.arrive_date%type,

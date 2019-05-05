@@ -19,6 +19,9 @@ begin
     set first = first_name_in, last = last_name_in, card_no = card_number_in, card_type = card_type_in
     where customer_id = customer_id_in;
 
+    arrival_text := to_date(arrival_date_in, 'yyyy/mm/dd');
+    depart_text := to_date(depart_date_in, 'yyyy/mm/dd');
+
     htp.print('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
     <html>
     <head>
@@ -28,7 +31,7 @@ begin
         <div align="center"><p><h2>Reservations</h2>
             <br />
             <!-- Navigation Bar Links -->
-            <a href="Create_New_Reservation">Homepage</a><br>
+            <a href="home_page">Homepage</a><br>
         <hr /></div>
         <br> <!-- Start Page Content -->
         <div allign="center">
@@ -39,9 +42,9 @@ begin
                 <tr><td>Card Company:</td><td>'||card_type_in||'</td></tr>
             </table>');
 
-    if get_date_conflicts(room_id_in, to_date(arrival_date_in, 'yyyy/mm/dd'), to_date(depart_date_in, 'yyyy/mm/dd')) = false then
+    if get_date_conflicts(room_id_in, arrival_text, depart_text) then
         update reservations
-        set arrive_date = to_date(arrival_date_in, 'yyyy/mm/dd'), depart_date = to_date(depart_date_in, 'yyyy/mm/dd'), adults = adults_in, kids = children_in
+        set arrive_date = arrival_text, depart_date = depart_text, adults = adults_in, kids = children_in
         where reservation_id = reservation_id_in;
         
         htp.print('<p>The following Reservation information has been updated and saved for Reservation '||reservation_id_in||'</p>
@@ -53,6 +56,7 @@ begin
             </table>');
         
     else
+        htp.prn('Thinks stuff is: '||room_id_in||' '||arrival_text||' - '||depart_text||' ');
         htp.print('<p>While we could save any changes to the customer, there was a conflict with that room on 
                     the selected dates. You will have to delete this reservation and complete a new one in 
                     a different room if you require these dates.</p>');
