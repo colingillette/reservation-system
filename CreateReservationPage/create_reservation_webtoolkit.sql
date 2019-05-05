@@ -57,7 +57,7 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
         Card Company:
         <select style="margin-top:15px;margin-bottom:15px;" name="card_company_name_in">
             <option value="Visa">Visa</option>
-            <option value="Mastercard">MasterCard</option>
+            <option value="MasterCard">MasterCard</option>
             <option value="Discover">Discover</option>
             <option value="American Express">American Express</option>
         </select><br>
