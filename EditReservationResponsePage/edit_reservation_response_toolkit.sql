@@ -34,15 +34,18 @@ begin
     <html>
     <head>
         <title>Reservation Edited</title>
+        <div style="text-align:center;">
+            <head><a href="create_new_reservation" style="margin-right: 3em;">Create Reservation</a></head>
+            <head><a href="home_page" style="margin-right: 3em;">Home</a></head>
+            <head><a href="show_current_reservations">Administration</a></head>
+        </div>
     </head>
     <body>
-        <div align="center"><p><h2>Reservations</h2>
+        <div align="center"><p><h2>Reservation Edited</h2>
             <br />
-            <!-- Navigation Bar Links -->
-            <a href="home_page">Homepage</a><br>
         <hr /></div>
         <br> <!-- Start Page Content -->
-        <div allign="center">
+        <div align="center">
             <p>The following Customer information has been saved for Reservation '||reservation_id_in||'</p>
             <table border="0" cellpadding="1" cellspacing="1" summary="">
                 <tr><td>Full Name:</td><td>'||first_name_in||' '||last_name_in||'</td></tr>
