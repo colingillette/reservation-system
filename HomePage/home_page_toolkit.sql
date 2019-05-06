@@ -14,7 +14,11 @@ begin
   <body>
       <div style="text-align: center;">
           <h1>Example Hotel Company</h1>
-          <p><h2>This will contain detail about the company.</h2>
+          <p>
+            <h2>We are a chain of small hotels in big locations.</h2>
+            
+            You can find us in London, Beverly Hills, New York, and Vancouver! Use the navigations bar above to either create a
+            reservation, or edit and delete existing ones.
           </p>
       </div>
   </body>
