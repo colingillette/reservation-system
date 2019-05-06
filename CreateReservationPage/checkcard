@@ -72,12 +72,12 @@ function discovernumber(cardnumber) {
         } else if (selectedtyp ==="Discover"){
         discovernumber(cardnumer);
         }else{
-        visanumber(cardnumer);
+        return visanumber(cardnumer);
         }
         }
       </script>
 
-    <form method="post" align="center" name ="form1" id ="form1">
+    <form method="post" align="center" name ="form1" id ="form1" onsubmit="return checkcard()">
         First Name:
         <input type="text" name="first_name_in" style="margin-top:20px"><br>
         Last Name:
@@ -122,7 +122,7 @@ function discovernumber(cardnumber) {
             <option value="Discover">Discover</option>
             <option value="American Express">American Express</option>
         </select><br>
-        <input type="submit" name="submit_button_in" value="Proceed" onclick="checkcard()"/>
+        <input type="submit" name="submit_button_in" value="Proceed"/>
      </form>
     
 </body>
