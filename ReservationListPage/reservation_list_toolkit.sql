@@ -8,20 +8,30 @@ begin
         <head>
             <title>Reservation List</title>
             <link rel="stylesheet" href="index.css">
-            <a href="createReservation.html" id="createreservation">Create Reservation</a>
-            <a href="reservationList.html">Administration</a>
+            <div style="text-align:center;">
+                <head><a href="create_new_reservation" style="margin-right: 3em;">Create Reservation</a></head>
+                <head><a href="home_page" style="margin-right: 3em;">Home</a></head>
+                <head><a href="show_current_reservations">Administration</a></head>
+            </div>
         </head>
         <hr>
         <body>
-            <h1>Current Reservations</h1>
-
+            <h1 style="text-align:center;">Current Reservations</h1>
             <form action="edit_reservation" method="post">');
                 for location_row in location_cursor
                 loop
                     
                     htp.print('<section>
                         <h3>'||location_row.city||'</h3>
-                        <table>');
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Customer Name</th>
+                                <th>Room Number</th>
+                                <th>Price per Night</th>
+                                <th>Arrival Date</th>
+                                <th>Departure Date</th>
+                            </tr>');
                             for reservation in (select reservation_id, first, last, room_no, price, arrive_date, depart_date
                                                 from customers, rooms, reservations, locations
                                                 where customers.customer_id = reservations.customer_id 

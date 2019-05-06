@@ -104,7 +104,7 @@ begin
                     <input type="hidden" name="reservation_id_in" value="'||reservation_id_in||'">
                     <input type="hidden" name="customer_id_in" value="'||customer_id_text||'">
                     <input type="hidden" name="room_id_in" value="'||room_id_text||'">
-                    <input type="submit" name="submit" value="Submit">
+                    <input type="submit" name="submit" value="Submit Edits">
                 </form>');
                 htp.print('<form action="delete_reservation" method="post">
                     <input type="hidden" name="reservation_id_in" value="'||reservation_id_in||'">
