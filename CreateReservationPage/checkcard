@@ -133,6 +133,31 @@ function discovernumber(cardnumber) {
         <input type="submit" name="submit_button_in" value="Proceed"/>
      </form>
     
+    <p style="text-align:center;">Valid card numbers for each company start with these numbers:</p>
+    <div align="center">
+        <table>
+            <tr>
+                <th>Card Company</th>
+                <th>Starts With</th>
+            </tr>
+            <tr>
+                <td>American Express</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Visa</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>Mastercard</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Discover</td>
+                <td>6</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
 ');
