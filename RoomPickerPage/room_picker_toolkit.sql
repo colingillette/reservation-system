@@ -45,17 +45,21 @@ begin
              loop
                 room_good := true;
         
-                room_good := get_date_conflicts(room_row.room_id, depart_in_date, depart_in_date);
+                room_good := get_date_conflicts(room_row.room_id, arrival_in_date, depart_in_date);
                 
                 if room_row.fits_no_adults < adults_in or room_row.fits_no_kids < children_in then
                     room_good := false;
                 end if;
                 
-                if room_good = true then
+                if room_good then
                     htp.prn('<input type="radio" name="room_id_in" value="'||room_row.room_id||'"> 
-                        Room '||room_row.room_no||'
-                        Is Smoking: '||room_row.is_smoking||'
-                        Price: '||room_row.price||' per night
+                        Room '||room_row.room_no||' ');
+                        if room_row.is_smoking = 'T' then
+                            htp.prn('Smoking ');
+                        else
+                            htp.prn('Non-Smoking ');
+                        end if;
+                        htp.prn('Price: '||room_row.price||' per night
                     <br>');
                 end if;
              end loop;
