@@ -103,9 +103,17 @@ function discovernumber(cardnumber) {
             <option value="5">5</option>
         </select><br>
         Arrival Date:
-        <input type="date" name="arrival_in" style="margin-top: 15px"><br>
+        <input type="date" name="arrival_in" id="arrival_in" style="margin-top: 15px"><br>
+        <script>
+        var today = new Date().toISOString().split("T")[0];
+    document.getElementsByName("arrival_in")[0].setAttribute("min", today);
+        </script>
         Departure Date:
         <input type="date" name="depart_in" style="margin-top: 15px"><br>
+        <script>
+        var today = new Date().toISOString().split("T")[0];
+    document.getElementsByName("depart_in")[0].setAttribute("min", today);
+        </script>
         Location:
         <select style="margin-top:15px" name="city_in"> ');
             for location_row in location_cursor
