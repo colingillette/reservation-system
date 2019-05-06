@@ -37,12 +37,14 @@ begin
     <html>
     <head>
         <title>Edit Reservation</title>
+        <div style="text-align:center;">
+            <head><a href="create_new_reservation" style="margin-right: 3em;">Create Reservation</a></head>
+            <head><a href="home_page" style="margin-right: 3em;">Home</a></head>
+            <head><a href="show_current_reservations">Administration</a></head>
+        </div>
     </head>
     <body>
         <div align="center"><p><h2>Reservations</h2>
-            <br />
-            <!-- Navigation Bar Links -->
-            <a href="Create_New_Reservation">Homepage</a><br>
         <hr /></div>
         <br> <!-- Start Page Content -->
         <div align="center">
@@ -103,6 +105,10 @@ begin
                     <input type="hidden" name="customer_id_in" value="'||customer_id_text||'">
                     <input type="hidden" name="room_id_in" value="'||room_id_text||'">
                     <input type="submit" name="submit" value="Submit">
+                </form>');
+                htp.print('<form action="delete_reservation" method="post">
+                    <input type="hidden" name="reservation_id_in" value="'||reservation_id_in||'">
+                    <input type="submit" name="submit" value="Delete Reservation">
                 </form>');
             htp.print('</section></section>
         </div>
