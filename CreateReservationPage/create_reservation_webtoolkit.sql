@@ -9,12 +9,15 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
     <head>
         <link rel="stylesheet" href="index.css">
     </head>
-    <head><a href="createReservation.html" id="createreservation">Create Reservation</a></head>
-    <head><a href="reservationList.html">Administration</a></head>
+    <div style="text-align:center;">
+        <head><a href="create_new_reservation" style="margin-right: 3em;">Create Reservation</a></head>
+        <head><a href="home_page" style="margin-right: 3em;">Home</a></head>
+        <head><a href="show_current_reservations">Administration</a></head>
+    </div>
     <hr>
-<title align = "center">Create Reservation</title>
+<title align>Create Reservation</title>
 <body>
-    <h1>Create Reservation</h1>
+    <h1 style="text-align:center">Create Reservation</h1>
 
     <form action="room_picker" method="post" align="center">
         First Name:
