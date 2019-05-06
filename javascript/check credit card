@@ -1,1 +1,61 @@
-g
+var selectedCardType = document.getElementById("selecttype").value;
+var cardText = document.getElementById("cardnum").value; 
+
+function checkcard(){
+checkcreditcard(selectedCardType);
+}
+
+
+function checkcreditcard(cardType){
+    if (cardType == 'American Express'){
+     amexnumber(cardText);
+ }else if(cardType == 'MasterCard'){
+        masternumber(cardText);
+ } else if (cardType == 'Discover'){
+        discovernumber(cardText);
+ }else{
+        visanumber(cardText);
+ }
+}
+
+function amexnumber(cardnumber) {
+    var cardno = /^(?:3[47][0-9]{13})$/;
+    if (cardnumber.value.match(cardno)) {
+        return true;
+    }
+    else {
+        alert("Not a valid Amercican Express credit card number!");
+        return false;
+    }
+}
+
+function visanumber(cardnumber) {
+    var cardno = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+    if (cardnumber.value.match(cardno)) {
+        return true;
+    }
+    else {
+        alert("Not a valid Visa credit card number!");
+        return false;
+    }
+}
+function masternumber(cardnumber) {
+    var cardno = /^(?:5[1-5][0-9]{14})$/;
+    if (cardnumber.value.match(cardno)) {
+        return true;
+    }
+    else {
+        alert("Not a valid Mastercard number!");
+        return false;
+    }
+}
+function discovernumber(cardnumber) {
+    var cardno = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+    if (cardnumber.value.match(cardno)) {
+        return true;
+    }
+    else {
+        alert("Not a valid Discover card number!");
+        return false;
+    }
+}
