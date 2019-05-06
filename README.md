@@ -88,6 +88,6 @@ If everything is valid in these changes, they will be made. Otherwise this scree
 
 3. In browser, navigate to **127.0.0.1:8080/xepsp/*procedure_name***
 
-### Thought for trigger
+### Trigger
 
-Add a discount column and apply a discount if more than three nights?
+If all else fails, this will stop a new reservation from being created that violates date logic. In testing, I noticed this can accidentally happen if the page is reloaded.

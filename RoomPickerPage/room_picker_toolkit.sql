@@ -31,11 +31,14 @@ begin
     <html>
     <head>
         <title>Room Selection</title>
+        <div style="text-align:center;">
+            <head><a href="create_new_reservation" style="margin-right: 3em;">Create Reservation</a></head>
+            <head><a href="home_page" style="margin-right: 3em;">Home</a></head>
+            <head><a href="show_current_reservations">Administration</a></head></div>
     </head>
     <body>
         <div align="center"><p><h2>Example Rooms</h2></p>
-            <!-- Navigation Bar Links -->
-            <a href="">Home</a><br>
+           
         <hr /></div>
         <!-- Start Page Content -->
         <form action="new_reservation" method="post" align="center">
@@ -75,7 +78,7 @@ begin
                 <input type="hidden" name="card_company_name_in" value="'||card_company_name_in||'">');
             
             htp.prn('<br /><br />
-            <input type="submit" name="submit_button_in" value="Select Rooms"/>
+            <input type="submit" name="submit_button_in" value="Select Room"/>
         </form>
     <!-- End Page Content -->
     </body>

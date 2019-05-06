@@ -5,10 +5,11 @@ begin
       <head>
           <title>Hotel Reservation System</title>
       </head>
-      <div style="text-align: center">
-          <head><a href="create_new_reservation">Create Reservation</a></head>
-          <head><a href="show_current_reservations">Administration</a></head>
-      <hr></div>
+      <div style="text-align:center;">
+        <head><a href="create_new_reservation" style="margin-right: 3em;">Create Reservation</a></head>
+        <head><a href="home_page" style="margin-right: 3em;">Home</a></head>
+        <head><a href="show_current_reservations">Administration</a></head>
+    </div>
   <title>Example Hotel Company</title>
   <body>
       <div style="text-align: center;">

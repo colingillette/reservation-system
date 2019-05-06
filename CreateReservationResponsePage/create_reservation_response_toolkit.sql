@@ -30,28 +30,30 @@ begin
     <html>
     <head>
         <title>New Reservations Created</title>
+        <div style="text-align:center;">
+            <head><a href="create_new_reservation" style="margin-right: 3em;">Create Reservation</a></head>
+            <head><a href="home_page" style="margin-right: 3em;">Home</a></head>
+            <head><a href="show_current_reservations">Administration</a></head></div>
     </head>
     <body>
         <div align="center"><p><h2>Reservations</h2>
-            <br />
-            <!-- Navigation Bar Links -->
-            <a href="Create_New_Reservation">Homepage</a><br>
         <hr /></div>
         <br> <!-- Start Page Content -->
-        <div allign="center">
-        <table border="0" cellpadding="1" cellspacing="1" summary="">
-            <tr><td><b>Your Club</b></td></tr>
-            <tr></tr>
-            <tr><td>Full Name:</td><td>'||first_name_in||' '||last_name_in||'</td></tr>
-            <tr><td>Reservation ID:</td><td>'||reservation_id_seq.currval||'</td></tr>
-            <tr><td>Arrival Date:</td><td>'||arrival_in||'</td></tr>
-            <tr><td>Depart Date:</td><td>'||depart_in||'</td></tr>
-            <tr><td>Reservation Location:</td><td>'||city_in||' Room '||room_no_text||'</td></tr>
-            <tr><td>Adults</td><td>'||adults_in||'</td></tr>
-            <tr><td>Kids</td><td>'||children_in||'</td></tr>
-        </table>
-        ');
-        htp.prn('<!-- End Page Content -->
+        <div align="center">
+            <p><b>Your Reservation</b></p>
+            <table border="0" cellpadding="1" cellspacing="1" summary="">
+                <tr></tr>
+                <tr><td>Full Name:</td><td>'||first_name_in||' '||last_name_in||'</td></tr>
+                <tr><td>Reservation ID:</td><td>'||reservation_id_seq.currval||'</td></tr>
+                <tr><td>Arrival Date:</td><td>'||arrival_in||'</td></tr>
+                <tr><td>Depart Date:</td><td>'||depart_in||'</td></tr>
+                <tr><td>Reservation Location:</td><td>'||city_in||' Room '||room_no_text||'</td></tr>
+                <tr><td>Adults</td><td>'||adults_in||'</td></tr>
+                <tr><td>Kids</td><td>'||children_in||'</td></tr>
+            </table>
+            ');
+        htp.prn('</div>
+        <!-- End Page Content -->
     </body>
     </html>
     ');
