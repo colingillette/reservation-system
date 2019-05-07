@@ -321,11 +321,8 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
     <script>
           function amexnumber(cardnumber) {
     var cardno = /^(?:3[47][0-9]{13})$/;
-    if (cardnumber.value.match(cardno)) {
-        document.getElementById("form1").action = "room_picker.sql";
-    }
-    else {
-        alert("Not a valid Amercican Express credit card number!");
+    if (!cardnumber.value.match(cardno)) {
+        alert("Not a valid American Express card number!");
         return false;
     }
 }
@@ -339,11 +336,8 @@ function visanumber(cardnumber) {
 }
 function masternumber(cardnumber) {
     var cardno = /^(?:5[1-5][0-9]{14})$/;
-    if (cardnumber.value.match(cardno)) {
-        document.getElementById("form1").action = "room_picker.sql";
-    }
-    else {
-        alert("Not a valid Mastercard number!");
+    if (!cardnumber.value.match(cardno)) {
+        alert("Not a valid Master card number!");
         return false;
     }
 }
@@ -774,7 +768,15 @@ begin
                     htp.print('</select><br><br>
                     <p>Current Dates of Stay: '||arrive_date_text||' - '||depart_date_text||'</p>
                     Arrival Date: <input type="date" name="arrival_date_in"><br>
+                              <script>
+                    var today = new Date().toISOString().split("T")[0];
+                document.getElementsByName("arrival_date_in")[0].setAttribute("min", today);
+                    </script>
                     Depart Date: <input type="date" name="depart_date_in"><br><br>
+                              <script>
+                    var today = new Date().toISOString().split("T")[0];
+                document.getElementsByName("depart_date_in")[0].setAttribute("min", today);
+                    </script>
                     Adults: <select name="adults_in">');
                         for counter1 in 1..max_adults
                         loop
@@ -804,14 +806,7 @@ begin
                     <input type="hidden" name="reservation_id_in" value="'||reservation_id_in||'">
                     <input type="submit" name="submit" value="Delete Reservation">
                 </form>
-                <script>
-                    var today = new Date().toISOString().split("T")[0];
-                document.getElementsByName("arrival_in")[0].setAttribute("min", today);
-                    </script>
-                    <script>
-                    var today = new Date().toISOString().split("T")[0];
-                document.getElementsByName("depart_in")[0].setAttribute("min", today);
-                    </script>');
+                ');
             htp.print('</section></section>
         </div>
     </body>
