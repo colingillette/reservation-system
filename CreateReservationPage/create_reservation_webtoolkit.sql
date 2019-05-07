@@ -18,8 +18,66 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
 <title align>Create Reservation</title>
 <body>
     <h1 style="text-align:center">Create Reservation</h1>
+    <script>
+          function amexnumber(cardnumber) {
+    var cardno = /^(?:3[47][0-9]{13})$/;
+    if (cardnumber.value.match(cardno)) {
+        document.getElementById("form1").action = "room_picker.sql";
+    }
+    else {
+        alert("Not a valid Amercican Express credit card number!");
+        return false;
+    }
+}
 
-    <form action="room_picker" method="post" align="center">
+function visanumber(cardnumber) {
+    var cardno = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+    if (cardnumber.value.match(cardno)) {
+        document.getElementById("form1").action = "room_picker.sql";
+    }
+    else {
+        alert("Not a valid Visa credit card number!");
+        return false;
+    }
+}
+function masternumber(cardnumber) {
+    var cardno = /^(?:5[1-5][0-9]{14})$/;
+    if (cardnumber.value.match(cardno)) {
+        document.getElementById("form1").action = "room_picker.sql";
+    }
+    else {
+        alert("Not a valid Mastercard number!");
+        return false;
+    }
+}
+function discovernumber(cardnumber) {
+    var cardno = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+    if (cardnumber.value.match(cardno)) {
+        document.getElementById("form1").action = "room_picker.sql";
+    }
+    else {
+        alert("Not a valid Discover card number!");
+        return false;
+    }
+}
+        </script>
+        <script>
+        function checkcard(){
+        var selectedtyp = document.getElementById("selecttype").value;
+        var cardnumer = document.form1.cardnum;
+        if (selectedtyp === "American Express"){
+        amexnumber(cardnumer);
+        }else if(selectedtyp === "MasterCard"){
+        masternumber(cardnumer);
+        } else if (selectedtyp ==="Discover"){
+        discovernumber(cardnumer);
+        }else{
+        return visanumber(cardnumer);
+        }
+        }
+      </script>
+
+    <form method="post" align="center" name ="form1" id ="form1" onsubmit="return checkcard()">
         First Name:
         <input type="text" name="first_name_in" style="margin-top:20px"><br>
         Last Name:
@@ -45,9 +103,17 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
             <option value="5">5</option>
         </select><br>
         Arrival Date:
-        <input type="date" name="arrival_in" style="margin-top: 15px"><br>
+        <input type="date" name="arrival_in" id="arrival_in" style="margin-top: 15px"><br>
+        <script>
+        var today = new Date().toISOString().split("T")[0];
+    document.getElementsByName("arrival_in")[0].setAttribute("min", today);
+        </script>
         Departure Date:
         <input type="date" name="depart_in" style="margin-top: 15px"><br>
+        <script>
+        var today = new Date().toISOString().split("T")[0];
+    document.getElementsByName("depart_in")[0].setAttribute("min", today);
+        </script>
         Location:
         <select style="margin-top:15px" name="city_in"> ');
             for location_row in location_cursor
@@ -56,9 +122,9 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
             end loop;
         htp.print('</select><br>
         Card Number:
-        <input type="text" name="card_number_in" style="margin-top: 15px" placeholder="1234 5678 9101 2345"><br>
+        <input type="text" name="card_number_in" id ="cardnum" style="margin-top: 15px" placeholder="1234 5678 9101 2345"><br>
         Card Company:
-        <select style="margin-top:15px;margin-bottom:15px;" name="card_company_name_in">
+        <select style="margin-top:15px;margin-bottom:15px;" name="card_company_name_in" id ="selecttype">
             <option value="Visa">Visa</option>
             <option value="MasterCard">MasterCard</option>
             <option value="Discover">Discover</option>
@@ -67,6 +133,31 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
         <input type="submit" name="submit_button_in" value="Proceed"/>
      </form>
     
+    <p style="text-align:center;">Valid card numbers for each company start with these numbers:</p>
+    <div align="center">
+        <table>
+            <tr>
+                <th>Card Company</th>
+                <th>Starts With</th>
+            </tr>
+            <tr>
+                <td>American Express</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Visa</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>Mastercard</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Discover</td>
+                <td>6</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
 ');
