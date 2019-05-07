@@ -16,7 +16,7 @@ CREATE TABLE customers
     customer_id number(11) NOT NULL,
     first varchar2(20) NOT NULL,
     last varchar2(30) NOT NULL,
-    card_no char(19) NOT NULL,
+    card_no char(16) NOT NULL,
     card_type varchar2(20),
     CONSTRAINT customers_pk PRIMARY KEY (customer_id),
     -- Constraint to only allow the types of cards we accept
@@ -77,15 +77,15 @@ CREATE SEQUENCE reservation_id_seq;
 
 
 INSERT INTO customers (customer_id, first, last, card_no, card_type)
-    VALUES(customer_id_seq.nextval, 'John', 'Doe', '1234 5678 9102 3456', 'Visa');
+    VALUES(customer_id_seq.nextval, 'John', 'Doe', '1234567891023456', 'Visa');
 INSERT INTO customers (customer_id, first, last, card_no, card_type)
-    VALUES(customer_id_seq.nextval, 'Jane', 'Buck', '5555 0987 6543 2109', 'American Express');
+    VALUES(customer_id_seq.nextval, 'Jane', 'Buck', '5555098765432109', 'American Express');
 INSERT INTO customers (customer_id, first, last, card_no, card_type)
-    VALUES(customer_id_seq.nextval, 'Frank', 'Caliendo', '2323 4578 9191 6666', 'Discover');
+    VALUES(customer_id_seq.nextval, 'Frank', 'Caliendo', '2323457891916666', 'Discover');
 INSERT INTO customers (customer_id, first, last, card_no, card_type)
-    VALUES(customer_id_seq.nextval, 'Jeff', 'Smith', '1111 7878 6699 3535', 'MasterCard');
+    VALUES(customer_id_seq.nextval, 'Jeff', 'Smith', '1111787866993535', 'MasterCard');
 INSERT INTO customers (customer_id, first, last, card_no, card_type)
-    VALUES(customer_id_seq.nextval, 'Tory', 'Lane', '1234 6677 4455 3322', 'Visa');
+    VALUES(customer_id_seq.nextval, 'Tory', 'Lane', '1234667744553322', 'Visa');
 
 
 
@@ -332,10 +332,7 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
 
 function visanumber(cardnumber) {
     var cardno = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-    if (cardnumber.value.match(cardno)) {
-        document.getElementById("form1").action = "room_picker.sql";
-    }
-    else {
+    if (!cardnumber.value.match(cardno)) {
         alert("Not a valid Visa credit card number!");
         return false;
     }
@@ -352,10 +349,7 @@ function masternumber(cardnumber) {
 }
 function discovernumber(cardnumber) {
     var cardno = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
-    if (cardnumber.value.match(cardno)) {
-        document.getElementById("form1").action = "room_picker.sql";
-    }
-    else {
+    if (!cardnumber.value.match(cardno)) {
         alert("Not a valid Discover card number!");
         return false;
     }
@@ -366,18 +360,18 @@ function discovernumber(cardnumber) {
         var selectedtyp = document.getElementById("selecttype").value;
         var cardnumer = document.form1.cardnum;
         if (selectedtyp === "American Express"){
-        amexnumber(cardnumer);
+        return amexnumber(cardnumer);
         }else if(selectedtyp === "MasterCard"){
-        masternumber(cardnumer);
+        return masternumber(cardnumer);
         } else if (selectedtyp ==="Discover"){
-        discovernumber(cardnumer);
+        return discovernumber(cardnumer);
         }else{
         return visanumber(cardnumer);
         }
         }
       </script>
 
-    <form method="post" align="center" name ="form1" id ="form1" onsubmit="return checkcard()">
+    <form action="room_picker" method="post" align="center" name ="form1" id ="form1" onsubmit="return checkcard()">
         First Name:
         <input type="text" name="first_name_in" style="margin-top:20px"><br>
         Last Name:
@@ -422,7 +416,7 @@ function discovernumber(cardnumber) {
             end loop;
         htp.print('</select><br>
         Card Number:
-        <input type="text" name="card_number_in" id ="cardnum" style="margin-top: 15px" placeholder="1234 5678 9101 2345"><br>
+        <input type="text" name="card_number_in" id ="cardnum" style="margin-top: 15px" placeholder="1234567891012345"><br>
         Card Company:
         <select style="margin-top:15px;margin-bottom:15px;" name="card_company_name_in" id ="selecttype">
             <option value="Visa">Visa</option>
@@ -809,7 +803,15 @@ begin
                 htp.print('<form action="delete_reservation" method="post">
                     <input type="hidden" name="reservation_id_in" value="'||reservation_id_in||'">
                     <input type="submit" name="submit" value="Delete Reservation">
-                </form>');
+                </form>
+                <script>
+                    var today = new Date().toISOString().split("T")[0];
+                document.getElementsByName("arrival_in")[0].setAttribute("min", today);
+                    </script>
+                    <script>
+                    var today = new Date().toISOString().split("T")[0];
+                document.getElementsByName("depart_in")[0].setAttribute("min", today);
+                    </script>');
             htp.print('</section></section>
         </div>
     </body>
@@ -912,5 +914,35 @@ begin
     exception
     when others then
     htp.prn(sqlerrm);
+end;
+/
+
+create or replace procedure delete_reservation
+    (reservation_id_in number,
+    submit varchar2) is
+begin
+    delete from reservations
+    where reservation_id = reservation_id_in;
+    
+    htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
+    <html>
+        <head>
+            <link rel="stylesheet" href="index.css">
+        </head>
+        <div style="text-align:center;">
+            <head><a href="create_new_reservation" style="margin-right: 3em;">Create Reservation</a></head>
+            <head><a href="home_page" style="margin-right: 3em;">Home</a></head>
+            <head><a href="show_current_reservations">Administration</a></head>
+        </div>
+        <hr>
+    <title align>Reservation Deleted</title>
+    <body>
+        <h1 style="text-align:center">Reservation Deleted</h1>
+        <p style="text-align:center">
+            This represents confirmation that Reservation <b>'||reservation_id_in||'</b> has been deleted. Please use the
+            navigation buttons above to go to another page.
+        </p>
+    </body>
+    </html>');
 end;
 /
