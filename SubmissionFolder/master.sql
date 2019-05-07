@@ -1,3 +1,10 @@
+/*
+    This Script will install all tables, functions, triggers, and procedures needed in the program.
+
+    It can be re-ran at any time to reset the project to its base data.
+*/
+
+
 -- Drop statements so that the create statements can start fresh
 DROP TABLE reservations;
 DROP TABLE rooms;
@@ -294,7 +301,7 @@ begin
           </p>
       </div>
   </body>
-  </html>');
+  </html>'); 
 end;
 /
 

@@ -8,7 +8,7 @@ begin
     htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
     <html>
         <head>
-            <link rel="stylesheet" href="index.css">
+            <title align>Reservation Deleted</title>
         </head>
         <div style="text-align:center;">
             <head><a href="create_new_reservation" style="margin-right: 3em;">Create Reservation</a></head>
@@ -16,7 +16,6 @@ begin
             <head><a href="show_current_reservations">Administration</a></head>
         </div>
         <hr>
-    <title align>Reservation Deleted</title>
     <body>
         <h1 style="text-align:center">Reservation Deleted</h1>
         <p style="text-align:center">

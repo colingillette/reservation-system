@@ -7,7 +7,7 @@ begin
 htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
-        <link rel="stylesheet" href="index.css">
+        <title>Create New Reservation</title>
     </head>
     <div style="text-align:center;">
         <head><a href="create_new_reservation" style="margin-right: 3em;">Create Reservation</a></head>
@@ -15,47 +15,34 @@ htp.print('<!DOCTYPE HTML PUBLIC"-//W#C//DTD HTML 4.01 Transitional//EN">
         <head><a href="show_current_reservations">Administration</a></head>
     </div>
     <hr>
-<title align>Create Reservation</title>
 <body>
     <h1 style="text-align:center">Create Reservation</h1>
     <script>
           function amexnumber(cardnumber) {
     var cardno = /^(?:3[47][0-9]{13})$/;
-    if (cardnumber.value.match(cardno)) {
-        document.getElementById("form1").action = "room_picker.sql";
-    }
-    else {
-        alert("Not a valid Amercican Express credit card number!");
+    if (!cardnumber.value.match(cardno)) {
+        alert("Not a valid American Express card number!");
         return false;
     }
 }
 
 function visanumber(cardnumber) {
     var cardno = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-    if (cardnumber.value.match(cardno)) {
-        document.getElementById("form1").action = "room_picker.sql";
-    }
-    else {
+    if (!cardnumber.value.match(cardno)) {
         alert("Not a valid Visa credit card number!");
         return false;
     }
 }
 function masternumber(cardnumber) {
     var cardno = /^(?:5[1-5][0-9]{14})$/;
-    if (cardnumber.value.match(cardno)) {
-        document.getElementById("form1").action = "room_picker.sql";
-    }
-    else {
-        alert("Not a valid Mastercard number!");
+    if (!cardnumber.value.match(cardno)) {
+        alert("Not a valid Master card number!");
         return false;
     }
 }
 function discovernumber(cardnumber) {
     var cardno = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
-    if (cardnumber.value.match(cardno)) {
-        document.getElementById("form1").action = "room_picker.sql";
-    }
-    else {
+    if (!cardnumber.value.match(cardno)) {
         alert("Not a valid Discover card number!");
         return false;
     }
@@ -66,18 +53,18 @@ function discovernumber(cardnumber) {
         var selectedtyp = document.getElementById("selecttype").value;
         var cardnumer = document.form1.cardnum;
         if (selectedtyp === "American Express"){
-        amexnumber(cardnumer);
+        return amexnumber(cardnumer);
         }else if(selectedtyp === "MasterCard"){
-        masternumber(cardnumer);
+        return masternumber(cardnumer);
         } else if (selectedtyp ==="Discover"){
-        discovernumber(cardnumer);
+        return discovernumber(cardnumer);
         }else{
         return visanumber(cardnumer);
         }
         }
       </script>
 
-    <form method="post" align="center" name ="form1" id ="form1" onsubmit="return checkcard()">
+    <form action="room_picker" method="post" align="center" name ="form1" id ="form1" onsubmit="return checkcard()">
         First Name:
         <input type="text" name="first_name_in" style="margin-top:20px"><br>
         Last Name:
@@ -122,7 +109,7 @@ function discovernumber(cardnumber) {
             end loop;
         htp.print('</select><br>
         Card Number:
-        <input type="text" name="card_number_in" id ="cardnum" style="margin-top: 15px" placeholder="1234 5678 9101 2345"><br>
+        <input type="text" name="card_number_in" id ="cardnum" style="margin-top: 15px" placeholder="1234567891012345"><br>
         Card Company:
         <select style="margin-top:15px;margin-bottom:15px;" name="card_company_name_in" id ="selecttype">
             <option value="Visa">Visa</option>

@@ -80,7 +80,15 @@ begin
                     htp.print('</select><br><br>
                     <p>Current Dates of Stay: '||arrive_date_text||' - '||depart_date_text||'</p>
                     Arrival Date: <input type="date" name="arrival_date_in"><br>
+                              <script>
+                    var today = new Date().toISOString().split("T")[0];
+                document.getElementsByName("arrival_date_in")[0].setAttribute("min", today);
+                    </script>
                     Depart Date: <input type="date" name="depart_date_in"><br><br>
+                              <script>
+                    var today = new Date().toISOString().split("T")[0];
+                document.getElementsByName("depart_date_in")[0].setAttribute("min", today);
+                    </script>
                     Adults: <select name="adults_in">');
                         for counter1 in 1..max_adults
                         loop
@@ -109,7 +117,8 @@ begin
                 htp.print('<form action="delete_reservation" method="post">
                     <input type="hidden" name="reservation_id_in" value="'||reservation_id_in||'">
                     <input type="submit" name="submit" value="Delete Reservation">
-                </form>');
+                </form>
+                ');
             htp.print('</section></section>
         </div>
     </body>

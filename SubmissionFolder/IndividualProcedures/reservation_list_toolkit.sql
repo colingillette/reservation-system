@@ -7,7 +7,6 @@ begin
     <html>
         <head>
             <title>Reservation List</title>
-            <link rel="stylesheet" href="index.css">
             <div style="text-align:center;">
                 <head><a href="create_new_reservation" style="margin-right: 3em;">Create Reservation</a></head>
                 <head><a href="home_page" style="margin-right: 3em;">Home</a></head>
